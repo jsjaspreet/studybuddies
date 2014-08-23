@@ -10,11 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
 
 public class MainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		Parse.initialize(this, "e0Gw6N6WofJjHBY6OWADObIHkI7LPr7dsVVDuEqu", "F7k07avyfqMf9nARMpWke0sneZfSEgvge7SLBulB");
+		ParseObject testObject = new ParseObject("TestObject");
+		testObject.put("foo", "bar");
+		testObject.saveInBackground();
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		if (savedInstanceState == null) {
