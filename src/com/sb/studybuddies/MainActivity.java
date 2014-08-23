@@ -10,19 +10,42 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.os.Build;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
 
 public class MainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		/*super.onCreate(savedInstanceState);
+		 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
-		}*/
+		}
 		Intent i = new Intent(getApplicationContext(), LoginScreen.class);
-        startActivity(i);
+        startActivity(i);*/
+		
+		
+		// onCreate from LoginScreen.java
+        super.onCreate(savedInstanceState);
+        // setting default screen to login.xml
+        setContentView(R.layout.login);
+ 
+        TextView registerScreen = (TextView) findViewById(R.id.link_to_register);
+ 
+        // Listening to register new account link
+        registerScreen.setOnClickListener(new View.OnClickListener() {
+ 
+            public void onClick(View v) {
+                // Switching to Register screen
+                Intent i = new Intent(getApplicationContext(), RegisterScreen.class);
+                startActivity(i);
+            }
+        });
 	}
 
 	@Override
