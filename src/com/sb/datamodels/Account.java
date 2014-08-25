@@ -1,6 +1,10 @@
 package com.sb.datamodels;
 
-public class User {
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+
+@ParseClassName("Account")
+public class Account extends ParseObject {
 	private static int userIDCount = 10000;
 	private String firstName;
 	private String lastName;
@@ -8,19 +12,20 @@ public class User {
 	private String emailAddress;
 	private int userID;
 	
-	
-	public User(){
-		this.userID = ++userIDCount;
+	public Account(){
+		//this.userID = ++userIDCount;
+		super("Account"); 
 	}
 	
-	public User(String firstName, String lastName, String emailAddress){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.emailAddress = emailAddress;
-		this.userID = ++userIDCount;
+	public Account(String firstName, String lastName, String emailAddress){
+		super("Account");
+		this.put("firstName", firstName);
+		this.put("lastName", lastName);
+		this.put("email", emailAddress);
+		//this.userID = ++userIDCount;
 	}
 	
-	public User(String firstName, String lastName, String emailAddress, String phoneNumber){
+	public Account(String firstName, String lastName, String emailAddress, String phoneNumber){
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;
@@ -37,7 +42,7 @@ public class User {
 	}
 	
 	public String getLastName(){
-		return lastName;
+		return this.getString("Last Name");
 	}
 	
 	public String getEmailAddress(){
@@ -53,7 +58,7 @@ public class User {
 	}
 	
 	public void setLastName(String lastName){
-		this.lastName = lastName;
+		this.put("Last Name", lastName);
 	}
 	
 	public void setPhoneNumber(String phoneNumber){
