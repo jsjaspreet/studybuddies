@@ -13,5 +13,12 @@
     <string name="register">Register</string>
     <string name="to_register">New to Study Buddies?\nRegister here</string>
     <string name="to_login">Already have an account?\nLogin here</string>
+    <string name="action_search">Search</string>
+    <string name="action_new_event">Create Study Group</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_check_updates">Updates</string>
+    <string name="action_map">Map</string>
+    <string name="search_hint">Search for subject</string>
 
 </resources>

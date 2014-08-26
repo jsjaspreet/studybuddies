@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- New Event -->
+    <item android:id="@+id/action_new_event"
+        android:icon="@drawable/ic_action_new_event"
+        android:title="@string/action_new_event"
+        android:showAsAction="always" />
+    
+    <!-- Search -->
+    <item android:id="@+id/action_search"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/action_search"
+        android:showAsAction="always"
+        android:actionViewClass="android.widget.SearchView" />
+    
+    <!-- Refresh -->
+    <item android:id="@+id/action_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:title="@string/action_refresh"
+        android:showAsAction="always" />
+    
+    <!-- Map -->
+    <item android:id="@+id/action_map"
+        android:icon="@drawable/ic_action_location_found"
+        android:title="@string/action_map"
+        android:showAsAction="always"/>
+    
+    <!-- Check updates -->
+    <item android:id="@+id/action_check_updates"
+        android:icon="@drawable/ic_action_refresh"
+        android:title="@string/action_check_updates"
+        android:showAsAction="ifRoom" />
+</menu>

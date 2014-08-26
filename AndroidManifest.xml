@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="20" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,7 +15,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:uiOptions="splitActionBarWhenNarrow" >
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name" 
@@ -29,12 +30,43 @@
         </activity>
         
         <!--  Entry for LoginScreen.class -->
-        <activity android:name=".LoginScreen"
-                  android:label="Login to your Account"></activity>
+        <activity
+            android:name=".LoginScreen"
+            android:label="Login to your Account" >
+        </activity>
         
         <!--  Entry for RegisterScreen.class -->
-        <activity android:name=".RegisterScreen"
-                  android:label="Register New Account"></activity>
+        <activity
+            android:name=".RegisterScreen"
+            android:label="Register New Account" >
+        </activity>
+        
+        <!--  Entry for MainActivity.class -->
+        <activity
+            android:name=".MainActivity"
+            android:label="Main Screen" >
+        </activity>
+        
+        
+        <!-- Location found activity -->
+        <activity
+            android:name="com.sb.actionbar.CreateGroup"
+            android:label="@string/action_new_event"
+            android:parentActivityName=".MainActivity" >
+        </activity>
+        
+        <!-- Search results activity -->
+        <activity android:name="com.sb.actionbar.SearchResultsActivity"
+            android:parentActivityName=".MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+ 
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        
     </application>
 
 </manifest>
