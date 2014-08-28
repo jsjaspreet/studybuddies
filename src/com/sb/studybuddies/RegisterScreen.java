@@ -40,18 +40,62 @@ public class RegisterScreen extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
         	@Override
 			public void onClick(View v) {
-            	Account newAccount = new Account();
+        		//extract user entry
             	EditText input_firstname = (EditText)findViewById(R.id.reg_firstname);
             	EditText input_lastname = (EditText)findViewById(R.id.reg_lastname);
             	EditText input_password = (EditText)findViewById(R.id.reg_password);
+            	EditText input_passwordConfirm = (EditText)findViewById(R.id.reg_passwordConfirm);
             	EditText input_email = (EditText)findViewById(R.id.reg_email);
             	String user_firstname = input_firstname.getText().toString();
             	String user_lastname = input_lastname.getText().toString();
             	String user_password = input_password.getText().toString();
+            	String user_passwordConfirm = input_passwordConfirm.getText().toString();
             	String user_email = input_email.getText().toString();
             	String fullname = user_firstname + user_lastname;
             	String username = fullname;
+            
+            	/*validation goes here,
+            	 * - check whether email is valid
+            	 * - check whether all fields are entered
+            	 * - check whether passwords entered are the same
+            	 */
             	
+            	//password check
+            	System.out.println(user_password);
+            	System.out.println(user_passwordConfirm);
+            	System.out.println(user_password.equals(user_passwordConfirm));
+            	if(!user_password.equals(user_passwordConfirm)){
+					AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(RegisterScreen.this);
+
+					// set title
+					alertDialogBuilder.setTitle("Password Mismatch");
+
+					// set dialog message
+					alertDialogBuilder.setMessage("Your password and confirmation password do not match, please try again")
+							.setCancelable(false);
+					
+					// set dismiss button, restart activity once clicked
+					alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+				           public void onClick(DialogInterface dialog, int id) {
+				        	   dialog.dismiss();
+				           }
+				     });
+
+					// create alert dialog
+					AlertDialog alertDialog = alertDialogBuilder.create();
+
+					// show it
+					alertDialog.show();
+					
+					//restart activity
+		        	RegisterScreen.this.recreate();
+		        	input_password.setText(null);
+		        	input_passwordConfirm.setText(null);
+            	}
+            	else{
+            	
+            	System.out.println("Starting account creation");
+            	Account newAccount = new Account();
             	ParseQuery<ParseObject> query_sameName = ParseQuery.getQuery("Account");
             	query_sameName.whereEqualTo("fullname", fullname);
             	try {
@@ -130,7 +174,8 @@ public class RegisterScreen extends Activity {
 					// TODO Auto-generated catch block
 					e2.printStackTrace();
 				}
-			}
+        	}
+        	}
         });
         
         // Listening to Login Screen link

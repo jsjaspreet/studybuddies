@@ -20,5 +20,6 @@
     <string name="action_check_updates">Updates</string>
     <string name="action_map">Map</string>
     <string name="search_hint">Search for subject</string>
+    <string name="passwordConfirm">Confirm Password</string>
 
 </resources>
